@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * @author: hyc
  * @time: 2020/5/25 15:41
  */
-public class ThreadPoolUti {
+public class ThreadPoolUtil {
 
     private static final Map<PoolType, ExecutorService> POOLS = new HashMap<>();
 
