@@ -35,12 +35,22 @@ public class ThreadPoolUtilTest {
         result.stream().forEach(s -> System.out.println(s));
     }
 
+    @Test
+    public void cachedThreadPoolTest() throws Exception {
+
+        for (int i = 0; i < 1000; i++) {
+            Thread.sleep(10);
+            ThreadPoolUtil.submit(new T1(), ThreadPoolUtil.PoolType.CACHED_POOL);
+        }
+        System.in.read();
+    }
+
     class T1 implements Callable<String> {
 
         @Override
         public String call() throws Exception {
 
-            Thread.sleep(1000);
+            Thread.sleep(100);
             System.out.println(Thread.currentThread().getName() + "-- is running");
             return Thread.currentThread().getName() + "---t1";
         }

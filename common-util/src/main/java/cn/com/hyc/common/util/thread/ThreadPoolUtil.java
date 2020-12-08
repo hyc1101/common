@@ -25,7 +25,8 @@ public class ThreadPoolUtil {
 
     public enum PoolType {
         TEST_THREAD_POOL,
-        TEST_EX_POOL
+        TEST_EX_POOL,
+        CACHED_POOL
     }
 
     static {
@@ -36,9 +37,11 @@ public class ThreadPoolUtil {
             new ThreadPoolExecutor.AbortPolicy());
         POOLS.put(PoolType.TEST_THREAD_POOL, pool);
         // 当线程数大于corePoolSize数量，并且等待队列已满，但是还没有达到最大线程数maximumPoolSize，则线程池会创建新的“非核心线程”来执行任务
-        // 建议写法
+        // 适用场景：可用于Web服务瞬时削峰，但需注意长时间持续高峰情况造成的队列阻塞。
         pool = Executors.newFixedThreadPool(10, namedThreadFactory);
         POOLS.put(PoolType.TEST_EX_POOL, pool);
+        POOLS.put(PoolType.CACHED_POOL, Executors.newCachedThreadPool(namedThreadFactory));
+
     }
 
     /**
