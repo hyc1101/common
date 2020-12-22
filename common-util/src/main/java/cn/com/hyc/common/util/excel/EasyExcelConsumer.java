@@ -9,7 +9,7 @@ import com.alibaba.excel.write.metadata.WriteSheet;
 @FunctionalInterface
 public interface EasyExcelConsumer<T> {
 
-    void accept(ExcelWriter excelWriter);
+    void accept(ExcelWriter excelWriter, String sheetName);
 
     default void write(ExcelWriter excelWriter, WriteSheet writeSheet, List< ? super T> list) {
 

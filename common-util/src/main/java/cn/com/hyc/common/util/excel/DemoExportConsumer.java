@@ -23,10 +23,9 @@ public class DemoExportConsumer implements EasyExcelConsumer<DemoData> {
     }
 
     @Override
-    public void accept(ExcelWriter excelWriter) {
+    public void accept(ExcelWriter excelWriter,String sheetName) {
 
         long l = 0;
-        String sheetName = "order-";
         WriteSheet writeSheet = getSheet(sheetName + (l / 300000));
         for (int i = 0; i < 1000; i++) {
             List<DemoData> query = query();
