@@ -59,9 +59,9 @@ public class EasyExcelUtil<T> {
             // 这里 需要指定写用哪个class去写
             excelWriter = EasyExcel.write(getOutputStream(response, fileName), head).build();
             // 这里注意 如果同一个sheet只要创建一次
-            WriteSheet writeSheet = EasyExcel.writerSheet(sheetName).build();
+//            WriteSheet writeSheet = EasyExcel.writerSheet(sheetName).build();
             // 利用函数，实际使用时根据数据库分页的总的页数来
-            consumer.accept(excelWriter, writeSheet);
+            consumer.accept(excelWriter);
         } finally {
             // 千万别忘记finish 会帮忙关闭流
             if (excelWriter != null) {
