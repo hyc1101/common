@@ -26,7 +26,7 @@
 ### 常用方法
 > * public <T> ForkJoinTask<T> submit(ForkJoinTask<T> task) 提交一个ForkJoinTask来执行
 > * ForkJoinTask是一个抽象类方法，如果要使用ForkJoinPool去执行代码，
-> 就得继承ForkJoinTask的子抽象类去实现，然后使用ForkJoinPool的submmit方法去使用
+>   就得继承ForkJoinTask的子抽象类去实现，然后使用ForkJoinPool的submmit方法去使用
 
 ### 案例 ForkJoinDemo.java
 >   案例 使用ForkJoin,并行Stream计算大数据的和
