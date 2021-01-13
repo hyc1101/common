@@ -1,4 +1,4 @@
-package cn.com.hyc.thread;
+package cn.com.hyc.thread.forkjoin;
 
 /**
  * ForkJoin 并发执行任务，提高效率，在大数据量表现显著。最适合的是计算密集型的任务。
